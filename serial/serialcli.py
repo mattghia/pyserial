@@ -120,6 +120,7 @@ class Serial(SerialBase):
 
         if self._rtscts and self._xonxoff:
             self._port_handle.Handshake = System.IO.Ports.Handshake.RequestToSendXOnXOff
+            print(self.self._port_handle.Handshake)
         elif self._rtscts:
             self._port_handle.Handshake = System.IO.Ports.Handshake.RequestToSend
         elif self._xonxoff:
