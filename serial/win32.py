@@ -206,9 +206,9 @@ RTS_CONTROL_TOGGLE = 0  # Variable c_int
 SETRTS = 3
 CLRRTS = 4
 
-DTR_CONTROL_HANDSHAKE = 0  # Variable c_int
-DTR_CONTROL_DISABLE = 0  # Variable c_int
-DTR_CONTROL_ENABLE = 0  # Variable c_int
+DTR_CONTROL_HANDSHAKE = 1  # Variable c_int
+DTR_CONTROL_DISABLE = 1  # Variable c_int
+DTR_CONTROL_ENABLE = 1  # Variable c_int
 SETDTR = 5
 CLRDTR = 6
 
