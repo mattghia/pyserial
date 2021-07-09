@@ -81,10 +81,12 @@ class Serial(SerialBase):
 
             # Clear buffers:
             # Remove anything that was there
-            win32.PurgeComm(
-                self._port_handle,
-                win32.PURGE_TXCLEAR | win32.PURGE_TXABORT |
-                win32.PURGE_RXCLEAR | win32.PURGE_RXABORT)
+            
+            #These lines were commented out by me (Luke) because Ecovacs is hella annoying
+            #win32.PurgeComm(
+            #    self._port_handle,
+            #    win32.PURGE_TXCLEAR | win32.PURGE_TXABORT |
+            #    win32.PURGE_RXCLEAR | win32.PURGE_RXABORT)
         except:
             try:
                 self._close()
