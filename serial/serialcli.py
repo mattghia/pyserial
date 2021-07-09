@@ -120,14 +120,17 @@ class Serial(SerialBase):
 
         if self._rtscts and self._xonxoff:
             self._port_handle.Handshake = System.IO.Ports.Handshake.RequestToSendXOnXOff
-            print(self.self._port_handle.Handshake)
+            
         elif self._rtscts:
             self._port_handle.Handshake = System.IO.Ports.Handshake.RequestToSend
         elif self._xonxoff:
             self._port_handle.Handshake = System.IO.Ports.Handshake.XOnXOff
         else:
             self._port_handle.Handshake = getattr(System.IO.Ports.Handshake, 'None')   # reserved keyword in Py3k
-
+        print("Am here in library: ")
+        print(self._port_handle.Handshake)
+        print(self._rtscts)
+        print(self._xonxoff)
     #~ def __del__(self):
         #~ self.close()
 
