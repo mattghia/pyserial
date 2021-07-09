@@ -69,8 +69,8 @@ def to_bytes(seq):
 
 
 # create control bytes
-XON = to_bytes([11])
-XOFF = to_bytes([11])
+XON = to_bytes([17])
+XOFF = to_bytes([19])
 
 CR = to_bytes([13])
 LF = to_bytes([10])
