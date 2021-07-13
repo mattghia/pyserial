@@ -125,6 +125,9 @@ class Serial(SerialBase):
             timeouts.WriteTotalTimeoutConstant = win32.MAXDWORD
         else:
             timeouts.WriteTotalTimeoutConstant = max(int(self._write_timeout * 1000), 1)
+            
+        #Change delay between commands to -1 for who knows what reason
+        timeouts.ReadIntervalTimeout = -1
         win32.SetCommTimeouts(self._port_handle, ctypes.byref(timeouts))
 
         win32.SetCommMask(self._port_handle, win32.EV_ERR)
