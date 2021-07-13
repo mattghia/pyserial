@@ -130,7 +130,7 @@ class Serial(SerialBase):
         timeouts.ReadIntervalTimeout = -1
         win32.SetCommTimeouts(self._port_handle, ctypes.byref(timeouts))
 
-        win32.SetCommMask(self._port_handle, win32.EV_ERR)
+        win32.SetCommMask(self._port_handle, win32.EV_BREAK | win32.EV_CTS | win32.EV_DSR | win32.EV_ERR | win32.EV_RING | win32.EV_RLSD | win32.EV_RXCHAR | win32.EV_TXEMPTY)
 
         # Setup the connection info.
         # Get state and modify it:
