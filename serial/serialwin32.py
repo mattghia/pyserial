@@ -15,6 +15,7 @@ from __future__ import absolute_import
 import ctypes
 import time
 from serial import win32
+from ctypes import POINTER
 
 import serial
 from serial.serialutil import SerialBase, SerialException, to_bytes, PortNotOpenError, SerialTimeoutException
