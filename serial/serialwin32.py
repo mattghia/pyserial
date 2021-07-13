@@ -18,7 +18,7 @@ from serial import win32
 
 import serial
 from serial.serialutil import SerialBase, SerialException, to_bytes, PortNotOpenError, SerialTimeoutException
-
+from ctypes import POINTER
 
 class Serial(SerialBase):
     """Serial port implementation for Win32 based on ctypes."""
