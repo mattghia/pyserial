@@ -145,6 +145,10 @@ class Serial(SerialBase):
             comDCB.ByteSize = 8
         else:
             raise ValueError("Unsupported number of data bits: {!r}".format(self._bytesize))
+            
+        # Change xonxoff limit
+        comDCB.XonLim = 256
+        comDCB.XoffLim = 256
 
         if self._parity == serial.PARITY_NONE:
             comDCB.Parity = win32.NOPARITY
