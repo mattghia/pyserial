@@ -83,7 +83,8 @@ class Serial(SerialBase):
 
             self._reconfigure_port()
             
-            win32.WaitCommEvent(self._port_handle, self._overlapped_read)
+            tempPtr = win32.DWORD()
+            win32.WaitCommEvent(self._port_handle, tempPtr, self._overlapped_read)
 
             # Clear buffers:
             # Remove anything that was there
