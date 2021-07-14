@@ -132,7 +132,7 @@ class Serial(SerialBase):
 
         win32.SetCommMask(self._port_handle, win32.EV_BREAK | win32.EV_CTS | win32.EV_DSR | win32.EV_ERR | win32.EV_RING | win32.EV_RLSD | win32.EV_RXCHAR | win32.EV_TXEMPTY)
         
-        tempPtr = win32.DWORD(1)
+        tempPtr = win32.DWORD(win32.EV_RXCHAR)
         win32.WaitCommEvent(self._port_handle, tempPtr, self._overlapped_read)
         
         win32.PurgeComm(
