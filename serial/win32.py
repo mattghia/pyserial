@@ -225,8 +225,6 @@ EV_DSR = 16  # Variable c_int
 MAXDWORD = 4294967295  # Variable c_uint
 EV_RLSD = 32  # Variable c_int
 
-PTR_EV_RXCHAR = POINTER(EV_RXCHAR)
-
 ERROR_SUCCESS = 0
 ERROR_NOT_ENOUGH_MEMORY = 8
 ERROR_OPERATION_ABORTED = 995
@@ -356,7 +354,7 @@ __all__ = ['GetLastError', 'MS_CTS_ON', 'FILE_ATTRIBUTE_NORMAL',
            'GetCommModemStatus', 'EV_EVENT2', 'PURGE_TXCLEAR',
            'EV_BREAK', 'EVENPARITY', 'LPCVOID', 'COMSTAT', 'ReadFile',
            'PVOID', '_OVERLAPPED', 'WriteFile', 'GetCommTimeouts',
-           'ResetEvent', 'EV_RXCHAR', 'PTR_EV_RXCHAR', 'LPCOMSTAT', 'ClearCommError',
+           'ResetEvent', 'EV_RXCHAR', 'LPCOMSTAT', 'ClearCommError',
            'ERROR_IO_PENDING', 'EscapeCommFunction', 'GENERIC_READ',
            'RTS_CONTROL_HANDSHAKE', 'OVERLAPPED',
            'DTR_CONTROL_HANDSHAKE', 'PURGE_RXCLEAR', 'GENERIC_WRITE',
