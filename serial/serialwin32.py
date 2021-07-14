@@ -82,9 +82,6 @@ class Serial(SerialBase):
             win32.GetCommTimeouts(self._port_handle, ctypes.byref(self._orgTimeouts))
 
             self._reconfigure_port()
-            
-            tempPtr = win32.DWORD()
-            win32.WaitCommEvent(self._port_handle, tempPtr, self._overlapped_read)
 
             # Clear buffers:
             # Remove anything that was there
@@ -138,6 +135,9 @@ class Serial(SerialBase):
         win32.SetCommTimeouts(self._port_handle, ctypes.byref(timeouts))
 
         win32.SetCommMask(self._port_handle, win32.EV_BREAK | win32.EV_CTS | win32.EV_DSR | win32.EV_ERR | win32.EV_RING | win32.EV_RLSD | win32.EV_RXCHAR | win32.EV_TXEMPTY)
+        
+        tempPtr = win32.DWORD()
+        win32.WaitCommEvent(self._port_handle, tempPtr, self._overlapped_read)
         # Setup the connection info.
         # Get state and modify it:
         comDCB = win32.DCB()
