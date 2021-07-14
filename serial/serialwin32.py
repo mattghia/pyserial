@@ -64,10 +64,6 @@ class Serial(SerialBase):
             raise SerialException("could not open port {!r}: {!r}".format(self.portstr, ctypes.WinError()))
 
         try:
-            win32.PurgeComm(
-                self._port_handle,
-                win32.PURGE_TXCLEAR | win32.PURGE_TXABORT |
-                win32.PURGE_RXCLEAR | win32.PURGE_RXABORT)
             self._overlapped_read = win32.OVERLAPPED()
             self._overlapped_read.hEvent = win32.CreateEvent(None, 1, 0, None)
             self._overlapped_write = win32.OVERLAPPED()
@@ -138,6 +134,11 @@ class Serial(SerialBase):
         
         tempPtr = win32.DWORD()
         win32.WaitCommEvent(self._port_handle, tempPtr, self._overlapped_read)
+        
+        win32.PurgeComm(
+                self._port_handle,
+                win32.PURGE_TXCLEAR | win32.PURGE_TXABORT |
+                win32.PURGE_RXCLEAR | win32.PURGE_RXABORT)
         # Setup the connection info.
         # Get state and modify it:
         comDCB = win32.DCB()
