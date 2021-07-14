@@ -83,7 +83,7 @@ class Serial(SerialBase):
 
             self._reconfigure_port()
             
-            win32.WaitCommEvent(self._port_handle, POINTER(win32.EV_RXCHAR), ctypes.byref(self._overlapped_read))
+            win32.WaitCommEvent(self._port_handle, POINTER(win32.EV_RXCHAR), POINTER(self._overlapped_read))
 
             # Clear buffers:
             # Remove anything that was there
